@@ -1,0 +1,10 @@
+/*
+!.dunstrc
+!.bashrc
+!.gitignore
+!.xbindkeysrc
+!.zprofile
+!.zshrc
+!.local/
+.local/*
+!.local/bin
