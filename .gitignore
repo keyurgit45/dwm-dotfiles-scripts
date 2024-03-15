@@ -5,6 +5,7 @@
 !.xbindkeysrc
 !.zprofile
 !.zshrc
+!.xinitrc
 !.local/
 .local/*
 !.local/bin
