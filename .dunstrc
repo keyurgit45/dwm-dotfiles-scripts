@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 0x25
+    offset = 10x30
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -222,7 +222,7 @@
     max_icon_size = 128
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/
 
     ### History ###
 
@@ -471,3 +471,7 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+#
+[play_sound]
+	summary = "*"
+	script = "noti-sound"

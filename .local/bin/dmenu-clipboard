@@ -1,0 +1,3 @@
+#!/bin/bash
+CHOICE=$(tac ~/.clipboard | dmenu -l 10)
+echo "$CHOICE" | xclip -selection c

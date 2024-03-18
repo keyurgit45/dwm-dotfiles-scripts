@@ -1,0 +1,58 @@
+# Youtube music player
+search_link="https://vid.puffyan.us/search?q=query&page=1&date=none&type=video&duration=none&sort=relevance"
+declare -a results_list=()
+title=""
+youtube_link=""
+
+
+echo "Youtube music player"
+echo ""
+
+while getopts 't:' flag; do
+	case ${flag} in
+	t) title=$(echo "${OPTARG}" | sed 's/ /-/g') ;;
+	esac
+done
+
+if [ -z "$title" -o "$title" == " " ]; then
+	echo "Please enter a suitable title. (use -t flag)"
+	exit 1
+fi
+
+echo "Searching for ${title} on youtube..."
+
+curl -s "${search_link//query/$title}" |
+while IFS= read -r line; do
+    # Extract the title using sed
+    title=$(echo "$line" | sed -n 's/.*<p dir="auto">\([^<]*\)<\/p>.*/\1/p' | sed -e 's/&amp;//g' -e 's/#\w*//g')
+   
+    # Extract the YouTube link using sed
+    youtube_link=$(echo "$line" | sed -n 's/.*href="\([^"]*\)".*/\1/p')
+    
+    # Check if title and YouTube link are not empty
+    if [ ! -z "$title" ] && [ ! -z "$youtube_link" ]; then
+        # Create an associative array to store the extracted information
+        declare -A result
+        result["Title"]=$title
+        result["YouTube Link"]=$youtube_link
+	
+        # Append the associative array to the results list
+        results_list+=("$result")
+	echo $title
+        # Reset title and YouTube link for the next iteration
+        title=""
+        youtube_link=""
+    fi
+done
+
+# Print the results list
+for result in "${results_list[@]}"; do
+    echo "Title: ${result["Title"]}"
+    echo "YouTube Link: ${result["YouTube Link"]}"
+    echo "Channel: ${result["Channel"]}"
+    echo
+done
+
+mpv "https://youtube.com/$(curl -s "${search_link//query/$title}" | grep -Eo "watch\?v=.{11}" | head -n 1)" --no-video
+
+

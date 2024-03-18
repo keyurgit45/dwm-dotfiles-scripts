@@ -1,0 +1,3 @@
+#!/bin/sh
+
+paplay /home/keyur/.local/share/sounds/iphone_14_notification.ogg

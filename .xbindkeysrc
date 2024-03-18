@@ -78,9 +78,30 @@ XF86MonBrightnessDown
 "/usr/bin/google-chrome-stable"
 Mod4 + b
 
+# Open firefox
+"/usr/bin/firefox"
+Mod4 + f
+
 # Open VSCode
 "/usr/bin/vscodium"
 Mod4 + c
+
+# Open dmenu clipboard
+"dmenu-clipboard"
+Mod4 + v
+
+# Take full screen screenshot and save it to pictures
+"maim /home/keyur/Screenshots/$(date +%d-%m-%y-%s).png" 
+Print
+
+# Take selectable screenshot and save it to pictures
+"maim --select /home/keyur/Screenshots/$(date +%d-%m-%y-%s).png"
+Mod4 + Print
+
+# Take selectable screenshot and copy to clipboard
+# "main --select /home/keyur/Screenshots/$(date +%d-%m-%y-%s).png | xclip -selection clipboard -t image/png"
+# Shift + Print
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
