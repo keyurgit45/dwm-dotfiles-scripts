@@ -86,8 +86,8 @@ Mod4 + f
 "/usr/bin/vscodium"
 Mod4 + c
 
-# Open dmenu clipboard
-"dmenu-clipboard"
+# Open clipboard
+"clipmenu"
 Mod4 + v
 
 # Take full screen screenshot and save it to pictures

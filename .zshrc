@@ -6,6 +6,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/home/keyur/.local/repos/flutter/bin:/home/keyur/Android/Sdk/platform-tools:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+export CM_SELECTIONS="clipboard primary"
+export CM_DEBUG=0
+export CM_OUTPUT_CLIP=0
+export CM_MAX_CLIPS=100
+export CM_HISTLENGTH=10
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
